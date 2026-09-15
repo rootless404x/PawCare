@@ -1,0 +1,39 @@
+﻿@model IEnumerable<PawCare.Models.Mascota>
+
+@{
+    ViewData["Title"] = "Mascotas";
+}
+
+<h1>Lista de Mascotas</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Registrar Mascota</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre de Mascota</th>
+            <th>Nombre del Dueño</th>
+            <th>Tipo</th>
+            <th>Edad</th>
+            <th>Teléfono</th>
+            <th>Observaciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.NombreMascota</td>
+                <td>@item.NombreDueno</td>
+                <td>@item.Tipo</td>
+                <td>@item.Edad</td>
+                <td>@item.Telefono</td>
+                <td>@item.Observaciones</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

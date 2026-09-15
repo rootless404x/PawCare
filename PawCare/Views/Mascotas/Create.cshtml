@@ -1,0 +1,149 @@
+﻿@model PawCare.Models.Mascota
+
+@{
+    ViewData["Title"] = "Registrar Mascota";
+}
+
+<div class="container mt-4">
+
+    <h1 class="mb-4">Registrar Mascota</h1>
+
+    <div class="row">
+
+        <div class="col-12 col-lg-6">
+
+            <form asp-action="Create" method="post">
+
+                <div class="mb-3">
+
+                    <label asp-for="NombreMascota" class="form-label">
+                        Nombre de la mascota
+                    </label>
+
+                    <input asp-for="NombreMascota"
+                           class="form-control" />
+
+                    <span asp-validation-for="NombreMascota"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    <label asp-for="NombreDueno" class="form-label">
+                        Nombre del dueño
+                    </label>
+
+                    <input asp-for="NombreDueno"
+                           class="form-control" />
+
+                    <span asp-validation-for="NombreDueno"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    <label asp-for="Tipo" class="form-label">
+                        Tipo
+                    </label>
+
+                    <select asp-for="Tipo" class="form-select">
+
+                        <option value="">Seleccione...</option>
+
+                        <option value="Perro">Perro</option>
+
+                        <option value="Gato">Gato</option>
+
+                        <option value="Otro">Otro</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    <label asp-for="Edad" class="form-label">
+                        Edad
+                    </label>
+
+                    <input asp-for="Edad"
+                           type="number"
+                           class="form-control"
+                           min="0"
+                           max="30" />
+
+                    <span asp-validation-for="Edad"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    <label asp-for="Telefono" class="form-label">
+                        Teléfono
+                    </label>
+
+                    <input asp-for="Telefono"
+                           class="form-control"
+                           maxlength="9" />
+
+                    <span asp-validation-for="Telefono"
+                          class="text-danger">
+                    </span>
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    <label asp-for="Observaciones" class="form-label">
+                        Observaciones
+                    </label>
+
+                    <textarea asp-for="Observaciones"
+                              class="form-control"
+                              rows="4">
+                    </textarea>
+
+                </div>
+
+
+                <div class="d-flex gap-2">
+
+                    <button type="submit"
+                            class="btn btn-success">
+                        Registrar
+                    </button>
+
+                    <a asp-action="Index"
+                       class="btn btn-secondary">
+                        Cancelar
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+@section Scripts {
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+}
